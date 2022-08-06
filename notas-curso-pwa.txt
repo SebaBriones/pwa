@@ -1,0 +1,38 @@
+1-Progressive Web App (Aplicaciones Web Progresivas)
+    Una PWA es una página web que puede comportarse como una aplicación nativa
+    de un dispositivo, ya sea movil, tablet o pc.
+
+    Para que un sitio web pueda operar como PWA esta debe cumplir con 2 condiciones:
+        1-Tener activado un Service Worker
+        2-Se despliega por el protocolo seguro (HTTPS)
+
+    Requisitos que se deben cumplir para transformar un sitio web a una PWA
+        1-En el código html se deben tener ciertas meta etiquetas para que la PWA se 
+          vea bien en los diferentes dispositivos móbiles.
+
+            //Etiqueta para pintar la barra superior del navegador y de la WPA
+            <meta name="theme-color" content="#F0DB4F">
+            
+            //Estas etiqueta le inidican al móvil que el sitio está optimizado para móviles
+            <meta name="MobileOptimized" content="width">
+            <meta name="HandheldFriendly" content="true">
+
+            //Metaetiquetas para dispositivos apple
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+            //Favicon
+            <link rel="shortcut icon" type="image/png" href="./img/ProgramadorFitness.png">
+            //Icono de la app en el inicio
+            <link rel="apple-touch-icon" href="./ProgramadorFitness.png">
+            //Imagen que se muestra al iniciar la aplicación
+            <link rel="apple-touch-startup-image" href="./ProgramadorFitness.png">
+            //Se manda a llamar al manifest.json el cual es un archivo que contiene las 
+            //configuraciones de la WPA
+            <link rel="manifest" href="./manifest.json">
+
+        2-Se debe incluir el service worker a la aplicación, el cual es un archivo js y desde otro
+          js llamar a este service worker.
+
+          El archivo script.js debe confirmar primero si el navegador soporta service worker, 
+          de ser así usa promesas para mandar a llamar al service worker (sw.js)
